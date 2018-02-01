@@ -52,6 +52,7 @@ public class Utils : MonoBehaviour
 		estadoHijo.hambre = 50;
 		estadoHijo.energia = 50;
 		estadoHijo.hogar = papa.GetComponent<Estado> ().hogar;
+		estadoHijo.puedeProcrear = false;
 		estadoHijo.RutinaCrecer ();
 	}
 

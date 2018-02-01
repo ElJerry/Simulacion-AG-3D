@@ -26,19 +26,15 @@ public class Caminar : MonoBehaviour {
 			rigidBody.AddRelativeForce (Vector3.forward * 150);
 
 			// Revisar si el personaje se quedo atorado.
-			if (checarTrabado) {
-				float diferencia = (posicionanterior - transform.position).magnitude;
-
-				//if(echo)
-				print ("diferencia: ");
-				
-				if ( diferencia < .05f) {
-					transform.position = transform.position + (Vector3.left * 2);
-				}
-				posicionanterior = transform.position;
-				checarTrabado  = false;
-				StartCoroutine (antiTrabado());
+			float diferencia = (posicionanterior - transform.position).magnitude;
+			//print ("diferencia " + diferencia);
+						
+			if ( diferencia < .001f) {
+				transform.localPosition = transform.localPosition + (Vector3.left * .2f);
 			}
+			posicionanterior = transform.position;
+			checarTrabado  = false;
+			// ----------------------------------------------
 
 			GetComponent<CapsuleCollider> ().center = new Vector3 (0, .8f, -1.06f);
 		} else {

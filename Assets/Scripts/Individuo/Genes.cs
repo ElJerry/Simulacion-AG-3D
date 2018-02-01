@@ -6,11 +6,11 @@ public class Genes : MonoBehaviour {
 
 	private List<int> genes = new List<int>();
 	public static int probMutacion = 3;
+	int longevidad = 0; // segundos
 
 	//Descripcion de los Genes
 	//color 8 bits por RGB
-
-	//rango de vision - metros => min 5 max 100
+	//4 bits para longevidad - 1 a 17 minutos
 
 	public void createRandomGene(){
 		//color, RGB
@@ -19,6 +19,11 @@ public class Genes : MonoBehaviour {
 			for (int i = 0; i < 8; i++) {
 				genes.Add (Random.Range (0, 2)); //2 exclusivo = 0,1
 			}
+		}
+
+		//Longevidad
+		for (int i = 0; i < 4; i++) {
+			genes.Add (Random.Range (0, 2));
 		}
 	}
 
@@ -44,6 +49,15 @@ public class Genes : MonoBehaviour {
 			b += genes [i];
 			b = b << 1;
 		}
+
+		// Longevidad
+		for (int i = 24; i < 28; i++) {
+			longevidad += genes [i];
+			longevidad = longevidad << 1;
+		}
+		longevidad++; //en caso de que la longevidad sea 0, se aumenta 1 a todo
+		longevidad *= 20; //multiplicar longevidad para aumentar tiempo
+		print ("longevidad: " + (longevidad/60) + " minutos");
 
 		//Asignar colores al mesh
 		Color color = new Color(r/255,g/255,b/255,0);
@@ -97,6 +111,8 @@ public class Genes : MonoBehaviour {
 		print (s);
 	}
 
-
+	public int getLongevidad(){
+		return longevidad;
+	}
 
 }
