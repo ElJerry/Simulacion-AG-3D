@@ -477,10 +477,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1944943551961474, guid: 88e3a1863df96f64b976d366c9b80f93, type: 2}
-      propertyPath: m_TagString
-      value: comida
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88e3a1863df96f64b976d366c9b80f93, type: 2}
   m_IsPrefabParent: 0

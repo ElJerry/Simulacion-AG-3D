@@ -21,17 +21,27 @@ public class StateMachine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+		if (targetIndividuo == null && targetComida == null)
+			caminar.parar ();
+
 		EvaluarEstado ();
 	}
 
 	bool EvalEstado1(){
+
+		if (estado.salud < 30) {
+			RegresarBase ();
+			return true;
+		}
+
 		if (estado.hambre < 60) {
 			accion = "Comida";
 			buscarComida ();
 			return true;
 		}
 
-		if (estado.hambre > 80 && estado.salud > 90 && estado.puedeProcrear) {
+		if (estado.hambre > 80 /*&& estado.salud > 80*/ && estado.puedeProcrear) {
 			accion = "Reproduccion";
 			BuscarPareja ();
 			return true;
@@ -41,6 +51,7 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	bool EvalEstado2(){
+
 		if (estado.hambre < 80) {
 			accion = "Comida";
 			buscarComida ();
@@ -59,12 +70,8 @@ public class StateMachine : MonoBehaviour {
 			return;
 
 
+		RegresarBase ();
 
-		// regresar a la base si no hay actividad
-		if (estado.salud < 90) {
-			RegresarBase ();
-			return;
-		}
 	}
 
 	void RegresarBase(){
@@ -76,7 +83,7 @@ public class StateMachine : MonoBehaviour {
 			caminar.caminar ();
 		} else {
 			caminar.parar ();
-			estado.salud += (10 * Time.deltaTime);
+			estado.salud += 10;
 		}
 	}
 
@@ -139,7 +146,7 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	void Comer(){
-		estado.hambre += 10;
+		estado.Comer ();
 		targetComida.SendMessage ("Comer");
 	}
 

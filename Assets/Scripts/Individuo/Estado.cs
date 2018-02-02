@@ -17,12 +17,19 @@ public class Estado : MonoBehaviour {
 	void FixedUpdate(){
 		hambre = hambre - (deltaHambre * Time.deltaTime);
 
+		if (hambre > 80) {
+			salud += 1 * Time.deltaTime;
+		}
+
 		energia = Mathf.Min (100,energia);
 		salud = Mathf.Min (100,salud);
 
-
-		if (salud <= 0)
+		if (salud <= 0 || hambre <= 0 || energia <= 0)
 			GameObject.Destroy (gameObject);
+	}
+
+	public void Comer(){
+		hambre += 10;
 	}
 
 	public void ReinicioProcrear(){
@@ -35,14 +42,14 @@ public class Estado : MonoBehaviour {
 
 	IEnumerator morirPorTiempo(int tiempo){
 		yield return new WaitForSeconds (tiempo);
-		print ("---------------Murio " + gameObject.name);
+		//print ("---------------Murio " + gameObject.name);
 		yield return new WaitForSeconds (1);
 		GameObject.Destroy (gameObject);
 	}
 
 	IEnumerator RutinaReinicioProcrear(){
 		//print ("Inicio rutina procrear");
-		yield return new WaitForSeconds (60);
+		yield return new WaitForSeconds (50);
 		puedeProcrear = true;
 	}
 

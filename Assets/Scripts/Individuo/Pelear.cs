@@ -36,7 +36,7 @@ public class Pelear : MonoBehaviour {
 
 		if (sim < 70) {
 			//Atacar!!!
-			print("soy " + yo.name + " y estoy atacando a " + otro.name);
+			//print("soy " + yo.name + " y estoy atacando a " + otro.name);
 			Estado estadoEnemigo = otro.GetComponent<Estado> ();
 			Debug.DrawLine (yo.transform.position + Vector3.up, otro.transform.position+ Vector3.up,Color.red,1f);
 			estadoEnemigo.salud -= 10;
