@@ -11,9 +11,13 @@ public class Utils : MonoBehaviour
 //		print ( me.name + " log: Search closest used");
 
 		float diff = float.MaxValue, aux;
-		int id = 0;
+		int id = -10;
 
 		for (int i = 0; i < collection.Length; i++) {
+
+			if (collection [i] == me)
+				continue;
+
 			aux = (me.transform.position - collection [i].transform.position).sqrMagnitude;
 
 			if (aux == 0)
@@ -25,6 +29,9 @@ public class Utils : MonoBehaviour
 			}
 		}
 
+		if (id == -10)
+			return null;
+		
 		return collection [id];
 	}
 

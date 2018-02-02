@@ -24,22 +24,41 @@ public class StateMachine : MonoBehaviour {
 		EvaluarEstado ();
 	}
 
-	void EvaluarEstado(){
-
-		//entrar a rutina de pelear
-		//Pelear ();
-		
+	bool EvalEstado1(){
 		if (estado.hambre < 60) {
 			accion = "Comida";
 			buscarComida ();
-			return;
+			return true;
 		}
 
 		if (estado.hambre > 80 && estado.salud > 90 && estado.puedeProcrear) {
 			accion = "Reproduccion";
 			BuscarPareja ();
-			return;
+			return true;
 		}
+
+		return false;
+	}
+
+	bool EvalEstado2(){
+		if (estado.hambre < 80) {
+			accion = "Comida";
+			buscarComida ();
+			return true;
+		}
+
+		return false;
+	}
+
+	void EvaluarEstado(){
+
+		if (EvalEstado1 ())
+			return;
+		
+		if (EvalEstado2 ())
+			return;
+
+
 
 		// regresar a la base si no hay actividad
 		if (estado.salud < 90) {
@@ -101,6 +120,9 @@ public class StateMachine : MonoBehaviour {
 		if (targetComida == null)
 			targetComida = Utils.GetClosestGameObject(transform.gameObject, GameObject.FindGameObjectsWithTag("comida"));
 
+		if (targetComida == null)
+			return;
+
 		transform.LookAt (Utils.RemoveY(targetComida.transform.position));
 
 		float distanciaComida = (targetComida.transform.position - transform.position).sqrMagnitude;
@@ -117,7 +139,8 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	void Comer(){
-		estado.hambre = 100;
+		estado.hambre += 10;
+		targetComida.SendMessage ("Comer");
 	}
 
 }

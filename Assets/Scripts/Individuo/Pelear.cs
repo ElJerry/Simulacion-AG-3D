@@ -16,7 +16,7 @@ public class Pelear : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider otro){
+	void OnTriggerStay(Collider otro){
 		Atacar (this,otro);
 	}
 
