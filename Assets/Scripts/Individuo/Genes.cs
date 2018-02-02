@@ -8,11 +8,17 @@ public class Genes : MonoBehaviour {
 	public static int probMutacion = 3;
 	int longevidad = 3600; // segundos
 
+	public string familia;
+	public Color col;
 	//Descripcion de los Genes
 	//color 8 bits por RGB
 	//4 bits para longevidad - 1 a 17 minutos
 
 	public void createRandomGene(){
+		//Fam codename
+		familia = Utils.RandomString(5);
+		print ("Familia: " + familia);
+
 		//color, RGB
 		int times = 3;
 		while (times-- > 0) {
@@ -62,6 +68,8 @@ public class Genes : MonoBehaviour {
 
 		//Asignar colores al mesh
 		Color color = new Color(r/255,g/255,b/255,0);
+		col = color;
+
 		gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
 	}
 

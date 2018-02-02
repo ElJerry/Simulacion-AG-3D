@@ -25,6 +25,8 @@ public class GeneradorInicial : MonoBehaviour {
 		var ind2 = Instantiate(individuo,transform.position + (Vector3.left*4),Quaternion.identity);
 		ind2.name = "Individuo2";
 		Genes genesInd2 = ind2.GetComponent<Genes> ();
+		genesInd2.col = genesInd1.col;
+		genesInd2.familia = genesInd1.familia;
 		genesInd2.SetGenes(genesInd1.getGenes());
 		genesInd2.decodeGenes ();
 		ind2.name = "Individuo Inicial " + contador.ToString ();

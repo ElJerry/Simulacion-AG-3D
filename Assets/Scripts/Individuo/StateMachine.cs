@@ -42,8 +42,10 @@ public class StateMachine : MonoBehaviour {
 		}
 
 		// regresar a la base si no hay actividad
-		accion = "Flojera";
-		RegresarBase();
+		if (estado.salud < 90) {
+			RegresarBase ();
+			return;
+		}
 	}
 
 	void RegresarBase(){
@@ -55,15 +57,19 @@ public class StateMachine : MonoBehaviour {
 			caminar.caminar ();
 		} else {
 			caminar.parar ();
-			//estado.salud += (10 * Time.deltaTime);
+			estado.salud += (10 * Time.deltaTime);
 		}
 	}
 
 	void BuscarPareja(){
 
 		if (targetIndividuo == null) {
-			targetIndividuo = Utils.GetClosestGameObject (transform.gameObject, GameObject.FindGameObjectsWithTag ("Individuo"));
+			targetIndividuo = Utils.GetClosestGameObjectWithFamilyCode (transform.gameObject, GameObject.FindGameObjectsWithTag ("Individuo"), genes.familia);
 		}
+
+		// no existen individuos de la misma familia
+		if (targetIndividuo == null)
+			return;
 
 		transform.LookAt (Utils.RemoveY(targetIndividuo.transform.position));
 

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -19,12 +18,45 @@ public class Utils : MonoBehaviour
 
 			if (aux == 0)
 				continue;
+			
+			if (aux < diff) {
+				id = i;
+				diff = aux;
+			}
+		}
+
+		return collection [id];
+	}
+
+	public static GameObject GetClosestGameObjectWithFamilyCode(GameObject me, GameObject[] collection,string familia){
+
+		//		print ( me.name + " log: Search closest used");
+
+		float diff = float.MaxValue, aux;
+		int id = -10;
+
+		for (int i = 0; i < collection.Length; i++) {
+
+			if (collection [i] == me)
+				continue;
+
+			//comprobar que tengan el mismo codigo familiar
+			if (collection [i].GetComponent<Genes> ().familia != familia)
+				continue;
+			
+			aux = (me.transform.position - collection [i].transform.position).sqrMagnitude;
+
+			if (aux == 0)
+				continue;
 
 			if (aux < diff) {
 				id = i;
 				diff = aux;
 			}
 		}
+
+		if (id == -10)
+			return null;
 
 		return collection [id];
 	}
@@ -45,6 +77,8 @@ public class Utils : MonoBehaviour
 		nuevo = hijo.GetComponent<Genes> ();
 		nuevo.SetGenes (genesHijo);
 		nuevo.decodeGenes ();
+		nuevo.familia = papa.familia;
+		nuevo.col = papa.col;
 		hijo.transform.localScale = new Vector3 (1,1,1);
 
 
@@ -73,7 +107,18 @@ public class Utils : MonoBehaviour
 		}
 
 		int sim = (similares * 100) / sz;
-		print ("la similitud es " + sim);
+		//print ("la similitud es " + sim);
 		return sim;
+	}
+
+	public static string RandomString(int lenght){
+		string letras = "abcdefghi123456789";
+		int sz = letras.Length;
+		string fam = "";
+
+		for (int i = 0; i < lenght; i++) {
+			fam += letras [Random.Range(0,sz)];
+		}
+		return fam;
 	}
 }
