@@ -25,6 +25,9 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	void EvaluarEstado(){
+
+		//entrar a rutina de pelear
+		//Pelear ();
 		
 		if (estado.hambre < 60) {
 			accion = "Comida";
@@ -52,7 +55,7 @@ public class StateMachine : MonoBehaviour {
 			caminar.caminar ();
 		} else {
 			caminar.parar ();
-			estado.salud += (10 * Time.deltaTime);
+			//estado.salud += (10 * Time.deltaTime);
 		}
 	}
 

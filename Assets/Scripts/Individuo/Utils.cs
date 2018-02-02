@@ -59,4 +59,21 @@ public class Utils : MonoBehaviour
 	public static Vector3 RemoveY(Vector3 position){
 		return new Vector3(position.x,0,position.z);
 	}
+
+	public static int similitudGenetica(Genes g1, Genes g2){
+		List<int> gen1 = g1.getGenes ();
+		List<int> gen2 = g2.getGenes ();
+
+		int sz = gen1.Count;
+
+		int similares = 0;
+		for (int i = 0; i < gen1.Count; i++) {
+			if (gen1 [i] == gen2 [i])
+				similares++;
+		}
+
+		int sim = (similares * 100) / sz;
+		print ("la similitud es " + sim);
+		return sim;
+	}
 }

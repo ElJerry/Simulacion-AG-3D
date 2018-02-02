@@ -19,6 +19,10 @@ public class Estado : MonoBehaviour {
 
 		energia = Mathf.Min (100,energia);
 		salud = Mathf.Min (100,salud);
+
+
+		if (salud <= 0)
+			GameObject.Destroy (gameObject);
 	}
 
 	public void ReinicioProcrear(){

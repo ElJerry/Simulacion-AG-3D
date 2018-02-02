@@ -6,7 +6,7 @@ public class Genes : MonoBehaviour {
 
 	private List<int> genes = new List<int>();
 	public static int probMutacion = 3;
-	int longevidad = 0; // segundos
+	int longevidad = 3600; // segundos
 
 	//Descripcion de los Genes
 	//color 8 bits por RGB
@@ -51,13 +51,14 @@ public class Genes : MonoBehaviour {
 		}
 
 		// Longevidad
+		longevidad = 0;
 		for (int i = 24; i < 28; i++) {
 			longevidad += genes [i];
 			longevidad = longevidad << 1;
 		}
 		longevidad++; //en caso de que la longevidad sea 0, se aumenta 1 a todo
 		longevidad *= 20; //multiplicar longevidad para aumentar tiempo
-		print ("longevidad: " + (longevidad/60) + " minutos");
+		//print ("longevidad: " + (longevidad/60) + " minutos");
 
 		//Asignar colores al mesh
 		Color color = new Color(r/255,g/255,b/255,0);
@@ -114,5 +115,4 @@ public class Genes : MonoBehaviour {
 	public int getLongevidad(){
 		return longevidad;
 	}
-
 }

@@ -628,6 +628,8 @@ GameObject:
   - component: {fileID: 114441075059691020}
   - component: {fileID: 114048436333057958}
   - component: {fileID: 114799941658423530}
+  - component: {fileID: 65523476517081158}
+  - component: {fileID: 114996819364322698}
   m_Layer: 0
   m_Name: Individuo
   m_TagString: Individuo
@@ -2364,7 +2366,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419565992920518}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2379,7 +2381,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483144242589410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.7, y: 0, z: 62.7}
+  m_LocalPosition: {x: 92.53, y: 0, z: 38.372215}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 4950418778447202}
@@ -2470,7 +2472,19 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!65 &65523476517081158
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483144242589410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1.4, z: 3}
+  m_Center: {x: 0, y: 0.77, z: 0}
 --- !u!95 &95104369856103296
 Animator:
   serializedVersion: 3
@@ -2516,7 +2530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f01ee3b8648da4c81af6838a2067ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walk: 0
+  echo: 0
 --- !u!114 &114526371180791026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2544,6 +2558,17 @@ MonoBehaviour:
   targetHogar: {fileID: 0}
   accion: 
   distanciaAceptable: 10
+--- !u!114 &114996819364322698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483144242589410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9187ff07c0190384cb14e59d2af1c895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136482937548033544
 CapsuleCollider:
   m_ObjectHideFlags: 1
