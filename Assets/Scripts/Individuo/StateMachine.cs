@@ -83,13 +83,14 @@ public class StateMachine : MonoBehaviour {
 			caminar.caminar ();
 		} else {
 			caminar.parar ();
-			estado.salud += 10;
+			estado.AumentarSalud (10);
 		}
 	}
 
 	void BuscarPareja(){
 
 		if (targetIndividuo == null) {
+			caminar.parar ();
 			targetIndividuo = Utils.GetClosestGameObjectWithFamilyCode (transform.gameObject, GameObject.FindGameObjectsWithTag ("Individuo"), genes.familia);
 		}
 
@@ -107,14 +108,10 @@ public class StateMachine : MonoBehaviour {
 			caminar.parar ();
 
 			Utils.CruzarPareja (gameObject, targetIndividuo);
-			estado.hambre = 30f;
-			estado.puedeProcrear = false;
-			estado.ReinicioProcrear ();
+			estado.SetEstadoDespuesDeReproducir ();
 
 			Estado pareja = targetIndividuo.GetComponent<Estado> ();
-			pareja.hambre = 30f;
-			pareja.puedeProcrear = false;
-			pareja.ReinicioProcrear ();
+			pareja.SetEstadoDespuesDeReproducir ();
 
 			targetIndividuo = null;
 		}
@@ -124,8 +121,10 @@ public class StateMachine : MonoBehaviour {
 	void buscarComida(){
 
 		//Encontrar la mas cercana
-		if (targetComida == null)
-			targetComida = Utils.GetClosestGameObject(transform.gameObject, GameObject.FindGameObjectsWithTag("comida"));
+		if (targetComida == null) {
+			caminar.parar ();
+			targetComida = Utils.GetClosestGameObject (transform.gameObject, GameObject.FindGameObjectsWithTag ("comida"));
+		}
 
 		if (targetComida == null)
 			return;

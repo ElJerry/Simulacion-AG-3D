@@ -25,5 +25,16 @@ public class ControlTiempo : MonoBehaviour {
 			Time.timeScale = 4;
 			print ("aumentado");
 		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha0)){
+			Time.timeScale = 0.1f;
+			print ("aumentado");
+		}
+
+		if(Input.GetKeyDown(KeyCode.R)){
+			Application.LoadLevel (Application.loadedLevel);
+		}
 	}
+
+
 }

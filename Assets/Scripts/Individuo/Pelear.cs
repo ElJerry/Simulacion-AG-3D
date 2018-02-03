@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pelear : MonoBehaviour {
 
-	Genes genes;
+	Genes genes, otro;
 	bool atacar;
 	BoxCollider bCollider;
 
@@ -16,21 +16,39 @@ public class Pelear : MonoBehaviour {
 
 	}
 
-	void OnTriggerStay(Collider otro){
-		Atacar (this,otro);
+	void FixedUpdate(){
+		Collider[] colliders = Physics.OverlapSphere (transform.position,4f);
+
+		if (!atacar)
+			return;
+		
+		foreach (Collider c in colliders) {
+
+			if (c.gameObject.tag != "Individuo")
+				continue;
+
+			otro = c.GetComponent<Genes> ();					
+
+			if (genes.familia == otro.familia)
+				continue;
+
+			Atacar (this,c);
+			break; // Solo deberia atacar a uno a la vez
+		}
+
 	}
 
-	static void Atacar(Pelear yo, Collider otro){
-		if (!yo.atacar)
-			return;
 
-		if (otro.gameObject.tag != "Individuo")
-			return;
+//	void OnTriggerStay(Collider otro){
+//		Atacar (this,otro);
+//	}
 
-		Genes genOtro = otro.gameObject.GetComponent<Genes> ();
+	 void Atacar(Pelear yo, Collider otro){	
 
-		if (yo.genes == null || genOtro == null)
-			return;
+		Genes genOtro = otro.GetComponent<Genes> ();
+
+		if (genes == null || genOtro == null)
+			return;	
 
 		int sim = Utils.similitudGenetica (yo.genes,genOtro);
 

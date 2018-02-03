@@ -40,6 +40,18 @@ public class Estado : MonoBehaviour {
 		StartCoroutine ("Crecer");
 	}
 
+	public void SetEstadoDespuesDeReproducir(){
+		hambre = 30f;
+		puedeProcrear = false;
+		ReinicioProcrear ();
+	}
+
+	public void AumentarSalud(int puntos){
+		salud += puntos;
+		if (salud > 100)
+			salud = 100;
+	}
+
 	IEnumerator morirPorTiempo(int tiempo){
 		yield return new WaitForSeconds (tiempo);
 		//print ("---------------Murio " + gameObject.name);
@@ -49,7 +61,7 @@ public class Estado : MonoBehaviour {
 
 	IEnumerator RutinaReinicioProcrear(){
 		//print ("Inicio rutina procrear");
-		yield return new WaitForSeconds (50);
+		yield return new WaitForSeconds (30);
 		puedeProcrear = true;
 	}
 
