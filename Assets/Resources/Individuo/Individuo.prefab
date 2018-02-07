@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 114048436333057958}
   - component: {fileID: 114799941658423530}
   - component: {fileID: 114996819364322698}
+  - component: {fileID: 114438166348070728}
   m_Layer: 0
   m_Name: Individuo
   m_TagString: Individuo
@@ -2506,6 +2507,18 @@ MonoBehaviour:
   deltaHambre: 0.5
   hogar: {fileID: 0}
   puedeProcrear: 1
+--- !u!114 &114438166348070728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483144242589410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5445f80d3d67faa41947f171cb595b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!114 &114441075059691020
 MonoBehaviour:
   m_ObjectHideFlags: 1
