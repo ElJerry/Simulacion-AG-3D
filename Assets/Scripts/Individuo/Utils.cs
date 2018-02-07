@@ -85,7 +85,6 @@ public class Utils : MonoBehaviour
 		nuevo.SetGenes (genesHijo);
 		nuevo.decodeGenes ();
 		nuevo.familia = papa.familia;
-		nuevo.col = papa.col;
 		hijo.transform.localScale = new Vector3 (1,1,1);
 
 
