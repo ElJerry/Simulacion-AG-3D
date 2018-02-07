@@ -67,7 +67,7 @@ public class Genes : MonoBehaviour {
 		//print ("longevidad: " + (longevidad/60) + " minutos");
 
 		//Asignar colores al mesh
-		Color color = new Color(r/255,g/255,b/255,0);
+		Color color = new Color(r/255,g/255,b/255,255);
 		col = color;
 
 		gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;

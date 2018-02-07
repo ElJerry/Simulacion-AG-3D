@@ -17,7 +17,6 @@ public class Analogia : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		print (name + "fue clicado");
 		canvasGo.SetActive(true);
 		Time.timeScale = 0;
 

@@ -8,13 +8,14 @@ public class Renderer : MonoBehaviour {
 	// Elementos necesarios para mostrar informacion del individuo
 	private Text textoNombre;
 	private Text textoGenes;
-	public Image imagenColor;
+	private Image imagenColor;
+	private Genes sampleGenes;
 
-	void Start(){
+	void Awake(){
 		textoNombre = transform.GetChild (0).GetChild (0).GetComponent<Text> ();
 		textoGenes = transform.GetChild (0).GetChild (2).GetComponent<Text> ();
 		imagenColor = transform.GetChild (0).GetChild (4).GetComponent<Image> ();
-
+		sampleGenes = transform.GetChild (0).GetChild (5).GetComponent<Genes> ();
 	}
 
 	public void Render(GameObject objeto){
@@ -26,10 +27,14 @@ public class Renderer : MonoBehaviour {
 		foreach (int n in genes.getGenes()) {
 			genCode += n.ToString ();
 		}
+		textoGenes.text = "Genes: " + genCode;
 
-		textoGenes.text = "Genes: " + genCode + " gencode";
-
+		// Mostrar color del individuo
 		imagenColor.color = genes.col;
+
+		//Asignar genes al sample 3D
+		sampleGenes.SetGenes(genes.getGenes());
+		sampleGenes.decodeGenes ();
 
 	}
 }

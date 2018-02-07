@@ -56,7 +56,7 @@ public class Pelear : MonoBehaviour {
 			//Atacar!!!
 			//print("soy " + yo.name + " y estoy atacando a " + otro.name);
 			Estado estadoEnemigo = otro.GetComponent<Estado> ();
-			Debug.DrawLine (yo.transform.position + Vector3.up, otro.transform.position+ Vector3.up,Color.red,1f);
+			Debug.DrawLine (yo.transform.position + Vector3.up, otro.transform.position+ Vector3.up,genes.col,1f);
 			estadoEnemigo.salud -= 10;
 			yo.atacar = false;
 			yo.StartCoroutine (yo.reAtacar ());
