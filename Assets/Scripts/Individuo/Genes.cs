@@ -10,9 +10,15 @@ public class Genes : MonoBehaviour {
 
 	public string familia;
 	public Color col;
-	//Descripcion de los Genes
-	//color 8 bits por RGB
-	//4 bits para longevidad - 1 a 17 minutos
+	public int fuerza;
+	public int velocidad;
+	public int tamaño;
+
+	// Descripcion de los Genes
+	// color 8 bits por RGB
+	// 4 bits para longevidad - 1 a 17 minutos
+	// fuerza - 3 bits, 8 puntos maximos de fuerza
+	// velocidad - 2 bits
 
 	public void createRandomGene(){
 		//Fam codename
@@ -31,6 +37,18 @@ public class Genes : MonoBehaviour {
 		for (int i = 0; i < 4; i++) {
 			genes.Add (Random.Range (0, 2));
 		}
+
+		// fuerza
+		for (int i = 0; i < 3; i++) {
+			genes.Add (Random.Range (0, 2));
+		}
+
+		// velocidad
+		for (int i = 0; i < 2; i++) {
+			genes.Add (Random.Range (0, 2));
+		}
+
+		// tamaño
 	}
 
 	public void decodeGenes(){
@@ -59,17 +77,33 @@ public class Genes : MonoBehaviour {
 		// Longevidad
 		longevidad = 0;
 		for (int i = 24; i < 28; i++) {
-			longevidad += genes [i];
 			longevidad = longevidad << 1;
+			longevidad += genes [i];
 		}
 		longevidad++; //en caso de que la longevidad sea 0, se aumenta 1 a todo
 		longevidad *= 20; //multiplicar longevidad para aumentar tiempo
 		//print ("longevidad: " + (longevidad/60) + " minutos");
 
+
+		// fuerza - 3 bits
+		fuerza = 0;
+		for (int i = 28; i < 31; i++) {
+			fuerza = fuerza << 1;
+			fuerza += genes [i];
+		}
+		fuerza++ ; //evitar que la fuerza sea 0
+
+		// velocidad - 2 bits
+		velocidad = 0;
+		for (int i = 31; i < 33; i++) {
+			velocidad = velocidad << 1;
+			velocidad += genes [i];
+		}
+		velocidad++; //evitar que la velocidad sea 0
+
 		//Asignar colores al mesh
 		Color color = new Color(r/255,g/255,b/255,255);
 		col = color;
-
 		gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
 	}
 

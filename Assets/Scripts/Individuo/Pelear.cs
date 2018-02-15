@@ -24,11 +24,13 @@ public class Pelear : MonoBehaviour {
 		
 		foreach (Collider c in colliders) {
 
+			// ignorar si el objeto no es un individuo
 			if (c.gameObject.tag != "Individuo")
 				continue;
 
 			otro = c.GetComponent<Genes> ();					
 
+			// no atacar miembros de la familia
 			if (genes.familia == otro.familia)
 				continue;
 
@@ -57,7 +59,9 @@ public class Pelear : MonoBehaviour {
 			//print("soy " + yo.name + " y estoy atacando a " + otro.name);
 			Estado estadoEnemigo = otro.GetComponent<Estado> ();
 			Debug.DrawLine (yo.transform.position + Vector3.up, otro.transform.position+ Vector3.up,genes.col,1f);
-			estadoEnemigo.salud -= 10;
+			// decrementar la salud enemiga
+			estadoEnemigo.salud -= ((20/8)*genes.fuerza); // la fuerza maxima es 8, por lo tanto se divide 20(maximo de ataque) entre 8 y se multiplica por su propia fuerza
+
 			yo.atacar = false;
 			yo.StartCoroutine (yo.reAtacar ());
 		}
