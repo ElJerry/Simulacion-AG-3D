@@ -10,6 +10,7 @@ public class Renderer : MonoBehaviour {
 	private Text textoGenes;
 	private Text textoFuerza;
 	private Text textoVelocidad;
+	private Text textoTve;
 	private Image imagenColor;
 	private Genes sampleGenes;
 
@@ -18,6 +19,7 @@ public class Renderer : MonoBehaviour {
 		textoGenes = transform.GetChild (0).GetChild (2).GetComponent<Text> ();
 		textoFuerza = transform.GetChild (0).GetChild (6).GetComponent<Text> ();
 		textoVelocidad = transform.GetChild (0).GetChild (7).GetComponent<Text> ();
+		textoTve = transform.GetChild (0).GetChild (8).GetComponent<Text> ();
 		imagenColor = transform.GetChild (0).GetChild (4).GetComponent<Image> ();
 		sampleGenes = transform.GetChild (0).GetChild (5).GetComponent<Genes> ();
 	}
@@ -35,7 +37,7 @@ public class Renderer : MonoBehaviour {
 
 		textoFuerza.text = "Fuerza: " + genes.fuerza;
 		textoVelocidad.text = "Velocidad: " + genes.velocidad;
-
+		textoTve.text = "Tiempo vida\nestmado: " + genes.getLongevidad () + " segundos";
 
 		// Mostrar color del individuo
 		imagenColor.color = genes.col;

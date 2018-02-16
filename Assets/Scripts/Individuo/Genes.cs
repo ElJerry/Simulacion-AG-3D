@@ -6,7 +6,7 @@ public class Genes : MonoBehaviour {
 
 	private List<int> genes = new List<int>();
 	public static int probMutacion = 3;
-	int longevidad = 3600; // segundos
+	public int longevidad = 3600; // segundos
 
 	public string familia;
 	public Color col;
