@@ -23,7 +23,7 @@ public class Genes : MonoBehaviour {
 	public void createRandomGene(){
 		//Fam codename
 		familia = Utils.RandomString(5);
-		print ("Familia: " + familia);
+//		print ("Familia: " + familia);
 
 		/*color, RGB
 		int times = 3;
