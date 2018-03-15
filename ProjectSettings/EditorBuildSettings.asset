@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/inicio.unity
     guid: bab27c761fc4a2145b4286dd664fc760
   - enabled: 1
+    path: Assets/tutorial.unity
+    guid: 103fa66efa70df047bcab310d0c7b6ae
+  - enabled: 1
     path: Assets/Entorno.unity
     guid: 6c4700ee422185f48ade172b816cdaf1
