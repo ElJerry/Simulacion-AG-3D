@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950418778447202}
   - component: {fileID: 137589961586919286}
+  - component: {fileID: 120405676929085716}
   m_Layer: 0
   m_Name: EthanBody
   m_TagString: Untagged
@@ -2366,7 +2367,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419565992920518}
-  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
+  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2381,7 +2382,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483144242589410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 116.98493, y: 0, z: 30.637772}
+  m_LocalPosition: {x: 92.53, y: 0, z: 38.372215}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 4950418778447202}
@@ -2518,7 +2519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5445f80d3d67faa41947f171cb595b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!114 &114441075059691020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2542,8 +2542,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6271a1351da3843bcb6a43fd4bc7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  longevidad: 3600
   familia: 
   col: {r: 0, g: 0, b: 0, a: 0}
+  fuerza: 0
+  velocidad: 0
+  "tama\xF1o": 0
 --- !u!114 &114799941658423530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2571,6 +2575,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9187ff07c0190384cb14e59d2af1c895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!120 &120405676929085716
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052732860194168}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.18310165
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.8235294, g: 0.054498274, b: 0.054498274, a: 1}
+      key1: {r: 0.8235294, g: 0.054498274, b: 0.054498274, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 1
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!136 &136482937548033544
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2597,7 +2687,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8296ecc1605a8e141be05c9e28c03a29, type: 2}
+  - {fileID: 2100000, guid: c20a1281e2fffa14aa8ef01181466025, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
