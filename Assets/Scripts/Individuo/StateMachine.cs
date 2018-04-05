@@ -7,6 +7,8 @@ public class StateMachine : MonoBehaviour {
 	Estado estado;
 	Caminar caminar;
 	Genes genes;
+	Vector3 puntoAleatorio;
+	bool ObjetivoPuntoAleatorio;
 
 	public GameObject targetIndividuo, targetComida, targetHogar;
 	public string accion;
@@ -17,6 +19,7 @@ public class StateMachine : MonoBehaviour {
 		estado = GetComponent<Estado> ();
 		caminar = GetComponent<Caminar> ();
 		genes = GetComponent<Genes> ();
+		ObjetivoPuntoAleatorio = false;
 	}
 	
 	// Update is called once per frame
@@ -58,6 +61,11 @@ public class StateMachine : MonoBehaviour {
 			return true;
 		}
 
+		if (estado.salud < 100) {
+			RegresarBase (); // Cambiar por caminado aleatorio
+			return true;
+		}
+
 		return false;
 	}
 
@@ -69,8 +77,7 @@ public class StateMachine : MonoBehaviour {
 		if (EvalEstado2 ())
 			return;
 
-
-		RegresarBase ();
+		CaminarRandom();
 
 	}
 
@@ -84,6 +91,25 @@ public class StateMachine : MonoBehaviour {
 		} else {
 			caminar.parar ();
 			estado.AumentarSalud (10);
+		}
+	}
+
+	void CaminarRandom(){
+		if (ObjetivoPuntoAleatorio == false) {
+			puntoAleatorio = transform.position;
+			puntoAleatorio.x += Random.Range (0, 10);
+			puntoAleatorio.z += Random.Range (0, 10);
+			ObjetivoPuntoAleatorio = true;
+		}
+
+		transform.LookAt (Utils.RemoveY(puntoAleatorio));
+
+		float distancia = (transform.position - puntoAleatorio).sqrMagnitude;
+		if (distancia > distanciaAceptable) {
+			caminar.caminar ();
+		} else {
+			caminar.parar ();
+			ObjetivoPuntoAleatorio = false;
 		}
 	}
 
@@ -126,8 +152,10 @@ public class StateMachine : MonoBehaviour {
 			targetComida = Utils.GetClosestGameObject (transform.gameObject, GameObject.FindGameObjectsWithTag ("comida"));
 		}
 
-		if (targetComida == null)
+		if (targetComida == null) {
+			CaminarRandom ();	
 			return;
+		}
 
 		transform.LookAt (Utils.RemoveY(targetComida.transform.position));
 

@@ -19,7 +19,7 @@ public class GeneradorComida : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		if (activado && cantidadComida < 3) {
+		if (activado && cantidadComida < 1) { //maximo existiran 2 comidas en el mundo al terminarse las originales
 //			print ("meti comida: " + name);
 			activado = false;
 			cantidadComida++;
