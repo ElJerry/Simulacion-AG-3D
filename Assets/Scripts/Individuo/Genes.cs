@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Genes : MonoBehaviour {
 
 	private List<int> genes = new List<int>();
@@ -68,6 +69,7 @@ public class Genes : MonoBehaviour {
 		gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
 
 		//asignar el color de ifentificacion familiar - heredado
+
 		Material materialIdentificador = transform.Find ("IdFamilia").GetComponent<MeshRenderer> ().material;
 		materialIdentificador.color = colorFamiliar;
 	}

@@ -11,6 +11,10 @@ public class Renderer : MonoBehaviour {
 	private Text textoFuerza;
 	private Text textoVelocidad;
 	private Text textoTve;
+	private Text textoEnergia;
+	private Text textoHambre;
+	private Text textoSalud;
+
 	private Image imagenColor;
 	private Genes sampleGenes;
 
@@ -22,6 +26,11 @@ public class Renderer : MonoBehaviour {
 		textoTve = transform.GetChild (0).GetChild (8).GetComponent<Text> ();
 		imagenColor = transform.GetChild (0).GetChild (4).GetComponent<Image> ();
 		sampleGenes = transform.GetChild (0).GetChild (5).GetComponent<Genes> ();
+
+		textoHambre = transform.GetChild (0).GetChild (9).GetComponent<Text> ();
+		textoEnergia = transform.GetChild (0).GetChild (10).GetComponent<Text> ();
+		textoSalud = transform.GetChild (0).GetChild (11).GetComponent<Text> ();
+
 	}
 
 	public void Render(GameObject objeto){
@@ -44,7 +53,14 @@ public class Renderer : MonoBehaviour {
 
 		//Asignar genes al sample 3D
 		sampleGenes.SetGenes(genes.getGenes());
-		sampleGenes.decodeGenes ();
+
+		//Mostrar informacion del estado del individuo
+		Estado estado = objeto.GetComponent<Estado>();
+		textoHambre.text = "Hambre: " + estado.hambre;
+		textoEnergia.text = "Energia: " + estado.energia;
+		textoSalud.text = "Salud: " + estado.salud;
+
+		sampleGenes.decodeGenes (); // se pone al final para evitar errores con el decofigicador de genes
 
 	}
 }
