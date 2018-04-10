@@ -20,9 +20,7 @@ public class ControlCamara : MonoBehaviour {
 		Cursor.visible = mostrarMouse;
 	}
 
-	// Update is called once per frame
 	void Update () {
-
 		// controles de direccion =============================================
 		if (Input.GetKey (KeyCode.W)) {
 			transform.Translate (Vector3.forward * Time.deltaTime * speed);

@@ -13,7 +13,6 @@ public class Caminar : MonoBehaviour {
 
 	Genes genes;
 
-	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator> ();
 		rigidBody = gameObject.GetComponent<Rigidbody> ();
@@ -21,23 +20,19 @@ public class Caminar : MonoBehaviour {
 		StartCoroutine (antiTrabado());
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		animator.SetBool ("walking", walk);
 		if (walk) {
-//			print ("walking");
 			rigidBody.AddRelativeForce (Vector3.forward * ((150/4)*genes.velocidad));
 
 			// Revisar si el personaje se quedo atorado.
 			float diferencia = (posicionanterior - transform.position).magnitude;
-			//print ("diferencia " + diferencia);
 						
 			if ( diferencia < .001f) {
 				transform.localPosition = transform.localPosition + (Vector3.left * .2f);
 			}
 			posicionanterior = transform.position;
 			checarTrabado  = false;
-			// ----------------------------------------------
 
 			GetComponent<CapsuleCollider> ().center = new Vector3 (0, .8f, -1.06f);
 		} else {

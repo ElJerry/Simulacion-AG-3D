@@ -16,11 +16,9 @@ public class GeneradorComida : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
 	void FixedUpdate () {
 
 		if (activado && cantidadComida < 1) { //maximo existiran 2 comidas en el mundo al terminarse las originales
-//			print ("meti comida: " + name);
 			activado = false;
 			cantidadComida++;
 			GameObject.Instantiate<GameObject> ((GameObject)Resources.Load ("Comida"),transform.position,Quaternion.identity);
@@ -32,7 +30,6 @@ public class GeneradorComida : MonoBehaviour {
 	IEnumerator escanear(){
 		while (true) {
 			cantidadComida = GameObject.FindGameObjectsWithTag ("comida").Length;
-//			print ("cantidad comida " + cantidadComida);
 			yield return new WaitForSeconds (5);
 		}
 	}

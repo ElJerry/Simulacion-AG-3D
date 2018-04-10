@@ -11,7 +11,6 @@ public class cruzarManual : MonoBehaviour {
 		}
 	}
 
-
 	void cruzar(){
 		Genes yo, el, nuevo;
 		yo = transform.GetComponent<Genes> ();
@@ -20,9 +19,7 @@ public class cruzarManual : MonoBehaviour {
 
 		//Calcular la posicion enmedio de los padres
 
-
 		Vector3 posicionHijo = (transform.position + el.transform.position) / 2;
-
 
 		GameObject hijo = GameObject.Instantiate (Resources.Load ("Individuo/Individuo") as GameObject, posicionHijo, Quaternion.identity);
 
@@ -30,9 +27,5 @@ public class cruzarManual : MonoBehaviour {
 		nuevo.SetGenes (GenesNuevos);
 		nuevo.decodeGenes ();
 
-		//debug genes padres
-//		yo.printGenes();
-//		el.printGenes();
-//		nuevo.printGenes();
 	}
 }

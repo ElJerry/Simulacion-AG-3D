@@ -47,12 +47,7 @@ public class Pelear : MonoBehaviour {
 
 	}
 
-
-//	void OnTriggerStay(Collider otro){
-//		Atacar (this,otro);
-//	}
-
-	 void Atacar(Pelear yo, Collider otro){	
+	void Atacar(Pelear yo, Collider otro){	
 
 		Genes genOtro = otro.GetComponent<Genes> ();
 

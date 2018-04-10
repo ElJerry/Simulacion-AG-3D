@@ -8,7 +8,7 @@ public class GeneradorInicial : MonoBehaviour {
 	static int contador = 1;
 
 	public Color colorFamiliar;
-	// Use this for initialization
+
 	void Start () {
 
 		individuo = Resources.Load ("individuo/individuo") as GameObject;
@@ -19,12 +19,11 @@ public class GeneradorInicial : MonoBehaviour {
 
 		//asignar el color de familia
 		genesInd1.colorFamiliar = colorFamiliar;
+		ind1.name = "Individuo Inicial " + contador.ToString ();
 
 		genesInd1.decodeGenes ();
-
-		//ind1.AddComponent <cruzarManual>();
-		ind1.name = "Individuo Inicial " + contador.ToString ();
 		contador++;
+
 		// Asignar hogar
 		ind1.GetComponent<Estado>().hogar = gameObject;
 
@@ -41,9 +40,8 @@ public class GeneradorInicial : MonoBehaviour {
 		genesInd2.decodeGenes ();
 		ind2.name = "Individuo Inicial " + contador.ToString ();
 		contador++;
+
 		// Asignar hogar
 		ind2.GetComponent<Estado>().hogar = gameObject;
-
-
 	}
 }

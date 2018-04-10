@@ -16,7 +16,6 @@ public class Genes : MonoBehaviour {
 	public int tamaño;
 
 	// Descripcion de los Genes
-	// color 8 bits por RGB
 	// 4 bits para longevidad - 1 a 17 minutos
 	// fuerza - 3 bits, 8 puntos maximos de fuerza
 	// velocidad - 2 bits
@@ -24,15 +23,6 @@ public class Genes : MonoBehaviour {
 	public void createRandomGene(){
 		//Fam codename
 		familia = Utils.RandomString(5);
-//		print ("Familia: " + familia);
-
-		/*color, RGB
-		int times = 3;
-		while (times-- > 0) {
-			for (int i = 0; i < 8; i++) {
-				genes.Add (Random.Range (0, 2)); //2 exclusivo = 0,1
-			}
-		}*/
 
 		//Longevidad
 		for (int i = 0; i < 4; i++) {
@@ -48,33 +38,10 @@ public class Genes : MonoBehaviour {
 		for (int i = 0; i < 2; i++) {
 			genes.Add (Random.Range (0, 2));
 		}
-
-		// tamaño
 	}
 
 	public void decodeGenes(){
-		/*/Color
-		int r,g,b;
-		r = g = b = 0;
-
-		//r
-		for (int i = 0; i < 8; i++) {
-			r += genes [i];
-			r = r << 1;
-		}
-
-		//g
-		for (int i = 8; i < 16; i++) {
-			g += genes [i];
-			g = g << 1;
-		}
-
-		//b
-		for (int i = 16; i < 24; i++) {
-			b += genes [i];
-			b = b << 1;
-		}*/
-
+		
 		int idx = 0;
 		// Longevidad
 		longevidad = TraduceRangoGenes(ref idx,4);

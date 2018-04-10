@@ -14,7 +14,6 @@ public class StateMachine : MonoBehaviour {
 	public string accion;
 	public float distanciaAceptable = 10f;
 
-	// Use this for initialization
 	void Start () {
 		estado = GetComponent<Estado> ();
 		caminar = GetComponent<Caminar> ();
@@ -22,9 +21,7 @@ public class StateMachine : MonoBehaviour {
 		ObjetivoPuntoAleatorio = false;
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
-
 		if (targetIndividuo == null && targetComida == null)
 			caminar.parar ();
 
@@ -32,7 +29,6 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	bool EvalEstado1(){
-
 		if (estado.salud < 30) {
 			RegresarBase ();
 			return true;
@@ -54,7 +50,6 @@ public class StateMachine : MonoBehaviour {
 	}
 
 	bool EvalEstado2(){
-
 		if (estado.hambre < 80) {
 			accion = "Comida";
 			buscarComida ();
