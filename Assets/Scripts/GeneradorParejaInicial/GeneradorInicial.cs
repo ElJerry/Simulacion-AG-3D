@@ -6,6 +6,8 @@ public class GeneradorInicial : MonoBehaviour {
 
 	GameObject individuo;
 	static int contador = 1;
+
+	public Color colorFamiliar;
 	// Use this for initialization
 	void Start () {
 
@@ -14,9 +16,13 @@ public class GeneradorInicial : MonoBehaviour {
 		var ind1 = Instantiate(individuo, transform.position, Quaternion.identity);
 		Genes genesInd1 = ind1.GetComponent<Genes> ();
 		genesInd1.createRandomGene ();
+
+		//asignar el color de familia
+		genesInd1.colorFamiliar = colorFamiliar;
+
 		genesInd1.decodeGenes ();
 
-		ind1.AddComponent <cruzarManual>();
+		//ind1.AddComponent <cruzarManual>();
 		ind1.name = "Individuo Inicial " + contador.ToString ();
 		contador++;
 		// Asignar hogar
@@ -25,6 +31,10 @@ public class GeneradorInicial : MonoBehaviour {
 		var ind2 = Instantiate(individuo,transform.position + (Vector3.left*4),Quaternion.identity);
 		ind2.name = "Individuo2";
 		Genes genesInd2 = ind2.GetComponent<Genes> ();
+
+		//asignar el color de familia
+		genesInd2.colorFamiliar = colorFamiliar;
+
 		genesInd2.col = genesInd1.col;
 		genesInd2.familia = genesInd1.familia;
 		genesInd2.SetGenes(genesInd1.getGenes());
@@ -33,5 +43,7 @@ public class GeneradorInicial : MonoBehaviour {
 		contador++;
 		// Asignar hogar
 		ind2.GetComponent<Estado>().hogar = gameObject;
+
+
 	}
 }

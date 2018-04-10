@@ -83,6 +83,7 @@ public class Utils : MonoBehaviour
 
 		nuevo = hijo.GetComponent<Genes> ();
 		nuevo.SetGenes (genesHijo);
+		nuevo.colorFamiliar = papa.colorFamiliar;
 		nuevo.decodeGenes ();
 		nuevo.familia = papa.familia;
 		hijo.transform.localScale = new Vector3 (1,1,1);

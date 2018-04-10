@@ -10,6 +10,7 @@ public class Genes : MonoBehaviour {
 
 	public string familia;
 	public Color col;
+	public Color colorFamiliar;
 	public int fuerza;
 	public int velocidad;
 	public int tamaño;
@@ -98,6 +99,10 @@ public class Genes : MonoBehaviour {
 		Color color = new Color(r,g,b,255);
 		col = color;
 		gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
+
+		//asignar el color de ifentificacion familiar - heredado
+		Material materialIdentificador = transform.Find ("IdFamilia").GetComponent<MeshRenderer> ().material;
+		materialIdentificador.color = colorFamiliar;
 	}
 
 	float ColorPorcentaje(int valor, int maximo){
