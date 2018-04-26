@@ -6,6 +6,8 @@ using UnityEngine;
 public class Genes : MonoBehaviour {
 
 	private List<int> genes = new List<int>();
+	private int PuntosAdaptacion = 0;
+
 	public static int probMutacion = 3;
 	public int longevidad = 3600; // segundos
 
@@ -140,5 +142,27 @@ public class Genes : MonoBehaviour {
 
 	public int getLongevidad(){
 		return longevidad;
+	}
+
+	void CalificarGenes(){
+		/* Puntos a calificar
+		 * Fuerza * 1
+		 * Velocidad * 3
+		 * tiempo de vida * 4
+		 * */
+
+		int puntuacion = 0;
+		puntuacion += fuerza * 5;
+		puntuacion += velocidad * 10;
+		puntuacion += longevidad * 20;
+
+		PuntosAdaptacion = puntuacion;
+	}
+
+	public int getCalificacion(){
+		if (PuntosAdaptacion == 0)
+			CalificarGenes ();
+
+		return PuntosAdaptacion;
 	}
 }
