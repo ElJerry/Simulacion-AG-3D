@@ -24,8 +24,10 @@ public class Estado : MonoBehaviour {
 		energia = Mathf.Min (100,energia);
 		salud = Mathf.Min (100,salud);
 
-		if (salud <= 0 || hambre <= 0 || energia <= 0)
+		if (salud <= 0 || hambre <= 0 || energia <= 0) {
 			GameObject.Destroy (gameObject);
+			Estadisticas.individuosMuertos++;
+		}
 	}
 
 	public void Comer(){

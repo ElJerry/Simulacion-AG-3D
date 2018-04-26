@@ -115,6 +115,7 @@ public class Genes : MonoBehaviour {
 			if (mutacion < probMutacion) { // mutacion
 				gen = gen==1?0:1;
 				//print (transform.name + " tubo una mutacion!");
+				Estadisticas.mutaciones++;
 			}
 
 			genesNuevos.Add (gen);

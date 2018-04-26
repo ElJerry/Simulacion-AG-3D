@@ -95,6 +95,8 @@ public class Utils : MonoBehaviour
 		estadoHijo.hogar = papa.GetComponent<Estado> ().hogar;
 		estadoHijo.puedeProcrear = false;
 		estadoHijo.RutinaCrecer ();
+
+		Estadisticas.individuosNacidos++;
 	}
 
 	public static Vector3 RemoveY(Vector3 position){
