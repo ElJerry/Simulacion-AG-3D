@@ -57,7 +57,7 @@ public class Renderer : MonoBehaviour {
 		//Mostrar informacion del estado del individuo
 		Estado estado = objeto.GetComponent<Estado>();
 		textoHambre.text = "Hambre: " + estado.hambre;
-		textoEnergia.text = "Energia: " + estado.energia;
+		textoEnergia.text = "Energía: " + estado.energia;
 		textoSalud.text = "Salud: " + estado.salud;
 
 		sampleGenes.decodeGenes (); // se pone al final para evitar errores con el decofigicador de genes

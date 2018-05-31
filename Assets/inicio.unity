@@ -493,9 +493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Simulacion del Algoritmo Genetico
-
-    en 3D'
+  m_Text: "Simulaci\xF3n del Algoritmo Gen\xE9tico\nen 3D"
 --- !u!222 &780377902
 CanvasRenderer:
   m_ObjectHideFlags: 0

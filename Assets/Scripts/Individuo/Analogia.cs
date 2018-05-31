@@ -7,7 +7,7 @@ public class Analogia : MonoBehaviour {
 	public static GameObject canvasGo = null;
 	public static Renderer renderer;
 
-	public static bool Enabled;
+	public static bool Enabled = true;
 
 	void Start(){
 		if (canvasGo == null) {
@@ -15,7 +15,7 @@ public class Analogia : MonoBehaviour {
 			canvasGo.SetActive (false);
 
 			renderer = canvasGo.GetComponent<Renderer> ();
-			enabled = true;
+			//enabled = true;
 		}
 	}
 

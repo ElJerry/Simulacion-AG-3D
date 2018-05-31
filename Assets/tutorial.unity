@@ -1418,7 +1418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Variables Geneticas
+  m_Text: "Variables Gen\xE9ticas"
 --- !u!222 &975513799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1749,11 +1749,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '- Hambre
-
-    - Energia
-
-    - Salud (similar a vida en videojuegos)'
+  m_Text: "- Hambre\n- Energ\xEDa\n- Salud (similar a vida en videojuegos)"
 --- !u!222 &1183299586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3119,9 +3115,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "- Los individuos tienen un tiempo de vida maximo, este puede verse reducido
+  m_Text: "- Los individuos tienen un tiempo de vida m\xE1ximo, este puede verse reducido
     por falta de alimento o ser atacado por enemigos.\n\n- Al dar clic a un individuo
-    se desplegara su informacion gen\xE9tica."
+    se desplegara su informaci\xF3n gen\xE9tica."
 --- !u!222 &2046822556
 CanvasRenderer:
   m_ObjectHideFlags: 0
